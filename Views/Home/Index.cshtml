@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Landing Page</h1>
+    <p>Make sure to update the actions for the nav links</p>
+</div>
+
+
+<div>
+    <form action="/" method="post">
+        <label for="date">Date</label>
+        <input type="date" name="date" value="" />
+        <br />
+
+        <label for="timer">Time</label>
+        <input type="time" name="timer" value="" />
+        <br />
+
+        <label for="timetest">Date and time</label>
+        <input type="datetime-local" name="timetest" value="" />
+        <br />
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
