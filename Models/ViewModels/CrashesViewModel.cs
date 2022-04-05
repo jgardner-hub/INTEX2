@@ -9,5 +9,6 @@ namespace INTEX2.Models.ViewModels
     {
         public List<Crash> Crashes { get; set; }
         public PageInfo PageInfo { get; set; }
+
     }
 }
