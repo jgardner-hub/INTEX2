@@ -36,17 +36,84 @@ namespace INTEX2.Infrastructure
 
             TagBuilder final = new TagBuilder("div");
 
-            for (int i = 1; i <= PageBlah.TotalPages; i++)
+            int pagebuttonsides = 2;
+
+
+            // CASE: Early Pages
+            if (PageBlah.CurrentPage - pagebuttonsides <= 0)
             {
-                TagBuilder tb = new TagBuilder("a");
+                for (int i = 1; i <= (1 + (pagebuttonsides * 2)); i++)
+                {
+                    TagBuilder tb = new TagBuilder("a");
 
-                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });             
-                tb.Attributes["class"] = "btn btn-primary";
-             
-                tb.InnerHtml.Append(i.ToString());
+                    tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
 
-                final.InnerHtml.AppendHtml(tb);
+                    if (PageBlah.CurrentPage == i)
+                    {
+                        tb.Attributes["class"] = "btn btn-primary";
+                    }
+                    else
+                    {
+                        tb.Attributes["class"] = "btn btn-secondary";
+                    }
+                    tb.InnerHtml.Append(i.ToString());
+
+                    final.InnerHtml.AppendHtml(tb);
+                }
             }
+            //CASE: Late Pages
+            else if(PageBlah.CurrentPage + pagebuttonsides >= PageBlah.TotalPages)
+            {
+                for (int i = 1; i <= (1 + (pagebuttonsides * 2)); i++)
+                {
+                    TagBuilder tb = new TagBuilder("a");
+
+                    tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+
+                    if (PageBlah.CurrentPage == i)
+                    {
+                        tb.Attributes["class"] = "btn btn-primary";
+                    }
+                    else
+                    {
+                        tb.Attributes["class"] = "btn btn-secondary";
+                    }
+                    tb.InnerHtml.Append(i.ToString());
+
+                    final.InnerHtml.AppendHtml(tb);
+                }
+            }
+            //Case: Everything in the middle
+            else
+            {
+                for (int i = (PageBlah.CurrentPage - pagebuttonsides); i < PageBlah.CurrentPage; i++)
+                {
+                    TagBuilder tb = new TagBuilder("a");
+                    tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+                    tb.Attributes["class"] = "btn btn-secondary";
+                    tb.InnerHtml.Append((i).ToString());
+                    final.InnerHtml.AppendHtml(tb);
+                }
+
+                for (int i = (PageBlah.CurrentPage); i == PageBlah.CurrentPage; i++)
+                {
+                    TagBuilder tb = new TagBuilder("a");
+                    tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+                    tb.Attributes["class"] = "btn btn-primary";
+                    tb.InnerHtml.Append((i).ToString());
+                    final.InnerHtml.AppendHtml(tb);
+                }
+
+                for (int i = (PageBlah.CurrentPage + 1); i <= (PageBlah.CurrentPage + pagebuttonsides); i++)
+                {
+                    TagBuilder tb = new TagBuilder("a");
+                    tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+                    tb.Attributes["class"] = "btn btn-secondary";
+                    tb.InnerHtml.Append((i).ToString());
+                    final.InnerHtml.AppendHtml(tb);
+                }
+            }
+       
 
             tho.Content.AppendHtml(final.InnerHtml);
 

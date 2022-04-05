@@ -35,4 +35,10 @@
     </div>
 
 </div>
-<div page-blah="@Model.PageInfo" page-action="CrashSummary"></div>
+
+<div page-blah="@Model.PageInfo" page-action="CrashSummary" class="btn-group"></div>
+<form method="post">
+    <label>Jump to Page:</label>
+    <input type="number"/>
+    <button type="submit" asp-controller="Home" asp-action="pageJump">Go</button>
+</form>
