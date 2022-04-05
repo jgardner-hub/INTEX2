@@ -41,8 +41,9 @@
         <form method="post">
             <label>Jump to Page:</label>
             <input type="number" />
-            <button type="submit" asp-controller="Home" asp-action="pageJump">Go</button>
+            <button type="submit" asp-controller="Home" asp-action="pageJump" class="btn btn-secondary">Go</button>
         </form>
+        <p>Page @Model.PageInfo.CurrentPage of @Model.PageInfo.TotalPages Pages</p>
     </main>
 </div>
 

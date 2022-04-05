@@ -20,7 +20,7 @@ namespace INTEX2.Models
         [Required]
         public string CRASH_TIME { get; set; }
         [Required]
-        public int ROUTE { get; set; }
+        public string ROUTE { get; set; }
         [Required]
         public double MILEPOINT { get; set; }
         [Required]

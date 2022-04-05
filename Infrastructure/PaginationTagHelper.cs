@@ -36,11 +36,7 @@ namespace INTEX2.Infrastructure
 
             TagBuilder final = new TagBuilder("div");
 
-<<<<<<< HEAD
             int pagebuttonsides = 5;
-=======
-            int pagebuttonsides = 2;
->>>>>>> 505ca718c0901314876dbc87d4fdf1f1a0f36b9f
 
 
             // CASE: Early Pages
