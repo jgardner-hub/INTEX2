@@ -57,8 +57,19 @@ namespace INTEX2
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    name: "countypage",
+                    pattern: "Home/CrashSummary/{county}/pg{pageNum}",
+                    new {Controller = "Home", action = "CrashSummary"});
+
+                endpoints.MapControllerRoute("Paging", "Home/CrashSummary/pg{pageNum}", new { Controller = "Home", action = "CrashSummary" });
+                
+                endpoints.MapControllerRoute("county",
+                    "Home/CrashSummary/{county}",
+                    new { Controller = "Home", action = "CrashSummary", pageNum = 1 });
+
+                
+
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }

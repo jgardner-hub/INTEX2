@@ -1,4 +1,5 @@
 ﻿using INTEX2.Models;
+using INTEX2.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -22,18 +23,10 @@ namespace INTEX2.Controllers
         {
             return View();
         }
-<<<<<<< Updated upstream
 
-        public IActionResult CrashSummary()
-        {
-            var crashes = _context.crashdata.ToList();
-            return View(crashes);
-        }
-=======
-        [HttpGet]
         public IActionResult CrashSummary(string county, int pageNum = 1)
         {
-            int pageSize = 100;
+            int pageSize = 1000;
 
             var x = new CrashesViewModel
             {
@@ -55,13 +48,37 @@ namespace INTEX2.Controllers
 
             return View(x);
         }
-        
+        [HttpPost]
+        public IActionResult pageJump(int pageNum)
+        {
+            int pageSize = 1000;
+
+            var x = new CrashesViewModel
+            {
+                Crashes = _context.crashdata
+                .OrderBy(c => c.CRASH_ID)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize)
+                .ToList(),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumCrashes = _context.crashdata.Count(),
+                    CrashesPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+
+            };
+
+            return View("CrashSummary", x);
+        }
+
         //public IActionResult pageJump(int pageNum = 1)
         public IActionResult pageJump(string county, int pageNum = 1)
         {
             int pageSize = 100;
             pageNum = Convert.ToInt32(pageNum);
-            
+
             var x = new CrashesViewModel
             {
                 Crashes = _context.crashdata
@@ -81,7 +98,7 @@ namespace INTEX2.Controllers
             };
 
             return RedirectToAction("CrashSummary", x);
->>>>>>> Stashed changes
+
 
         }
     }
