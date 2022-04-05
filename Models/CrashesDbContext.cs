@@ -13,6 +13,6 @@ namespace INTEX2.Models
 
         }
 
-        public DbSet<Crash> Crashes { get; set; }
+        public DbSet<Crash> crashdata { get; set; }
     }
 }

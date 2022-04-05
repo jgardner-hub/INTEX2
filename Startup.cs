@@ -29,7 +29,7 @@ namespace INTEX2
 
             services.AddDbContext<CrashesDbContext>(options =>
            {
-               options.UseMySql(Configuration["ConnectionStrings:IntexDbConnection"]);
+               options.UseMySql(Configuration["ConnectionStrings:CrashesDbConnection"]);
 
            });
         }

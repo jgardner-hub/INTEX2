@@ -10,69 +10,72 @@ namespace INTEX2.Models
     {
         [Key]
         [Required]
-        public int crash_id { get; set; }
+
+        public int CRASH_ID { get; set; }
 
         [Required]
-        public string crash_date { get; set; }
+        public string CRASH_DATETIME { get; set; }
         [Required]
-        public string crash_time { get; set; }
+        public string CRASH_DATE { get; set; }
         [Required]
-        public int route { get; set; }
+        public string CRASH_TIME { get; set; }
         [Required]
-        public double milepoint { get; set; }
+        public int ROUTE { get; set; }
         [Required]
-        public double lat_utm_y { get; set; }
+        public double MILEPOINT { get; set; }
         [Required]
-        public double long_utm_x { get; set; }
+        public double LAT_UTM_Y { get; set; }
         [Required]
-        public string main_road_name { get; set; }
+        public double LONG_UTM_X { get; set; }
         [Required]
-        public string city { get; set; }
+        public string MAIN_ROAD_NAME { get; set; }
         [Required]
-        public string county_name { get; set; }
+        public string CITY { get; set; }
         [Required]
-        public int crash_severity_id { get; set; }
+        public string COUNTY_NAME { get; set; }
+        [Required]
+        public int CRASH_SEVERITY_ID { get; set; }
 
 
 
         //All of the Binary options
         [Required]
-        public string work_zone_related { get; set; }
+        public bool WORK_ZONE_RELATED { get; set; }
         [Required]
-        public string pedestrian_involved { get; set; }
+        public bool PEDESTRIAN_INVOLVED { get; set; }
         [Required]
-        public string bicyclist_involved { get; set; }
+        public bool BICYCLIST_INVOLVED { get; set; }
         [Required]
-        public string motorcycle_involved { get; set; }
+        public bool MOTORCYCLE_INVOLVED { get; set; }
         [Required]
-        public string improper_restraint { get; set; }
+        public bool IMPROPER_RESTRAINT { get; set; }
         [Required]
-        public string unrestrained { get; set; }
+        public bool UNRESTRAINED { get; set; }
         [Required]
-        public string dui { get; set; }
+        public bool DUI { get; set; }
         [Required]
-        public string intersection_related { get; set; }
+        public bool INTERSECTION_RELATED { get; set; }
         [Required]
-        public string wild_animal_related { get; set; }
+        public bool WILD_ANIMAL_RELATED { get; set; }
         [Required]
-        public string domestic_animal_related { get; set; }
+        public bool DOMESTIC_ANIMAL_RELATED { get; set; }
         [Required]
-        public string overturn_rollover { get; set; }
+        public bool OVERTURN_ROLLOVER { get; set; }
         [Required]
-        public string commercial_motor_veh_involved { get; set; }
+        public bool COMMERCIAL_MOTOR_VEH_INVOLVED { get; set; }
         [Required]
-        public string teenage_driver_involved { get; set; }
+        public bool TEENAGE_DRIVER_INVOLVED { get; set; }
         [Required]
-        public string older_driver_involved { get; set; }
+        public bool OLDER_DRIVER_INVOLVED { get; set; }
         [Required]
-        public string night_dark_condition { get; set; }
+        public bool NIGHT_DARK_CONDITION { get; set; }
         [Required]
-        public string single_vehicle { get; set; }
+        public bool SINGLE_VEHICLE { get; set; }
         [Required]
-        public string distracted_driving { get; set; }
+        public bool DISTRACTED_DRIVING { get; set; }
         [Required]
-        public string drowsy_driving { get; set; }
+        public bool DROWSY_DRIVING { get; set; }
         [Required]
-        public string roadway_departure { get; set; }
+        public bool ROADWAY_DEPARTURE { get; set; }
     }
 }

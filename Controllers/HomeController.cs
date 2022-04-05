@@ -25,7 +25,7 @@ namespace INTEX2.Controllers
 
         public IActionResult CrashSummary()
         {
-            var crashes = _context.Crashes.ToList();
+            var crashes = _context.crashdata.ToList();
             return View(crashes);
         }
 
