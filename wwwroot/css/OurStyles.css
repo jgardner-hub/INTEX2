@@ -5,6 +5,16 @@
     --ourorange: #ee7623;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: var(--ourgray);
 }
@@ -17,13 +27,44 @@ body {
     background-color: white;
 }
 
+.filterbox {
+    display: grid;
+    justify-items: stretch;
+    row-gap: 2px;
+}
+
+.pimg1 {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/ed-259-xcrI6CPkkJs-unsplash.jpg');
+    min-height: 500px;
+    width: 100vw;
+    position: relative;
+    opacity: 0.70;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.ptext {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+
+
+
+
+/*
+    Overwrite Bootstrap
+*/
+
 .btn-primary {
     background-color: var(--ourblue);
     border: var(--ourblue);
 }
 
-.filterbox {
-    display:grid; 
-    justify-items:stretch; 
-    row-gap:2px;
-}
+
+
