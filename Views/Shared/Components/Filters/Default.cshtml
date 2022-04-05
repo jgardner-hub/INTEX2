@@ -1,0 +1,14 @@
+﻿@{
+}
+
+@model IEnumerable<string>
+
+<div class="filterbox">
+    <a class="btn btn-primary" asp-controller="Home" asp-action="CrashSummary" asp-route-county="">Home</a>
+
+    @foreach (string c in Model)
+    {
+        <a class="btn btn-primary" asp-controller="Home" asp-action="CrashSummary" asp-route-county="@c">@c County</a>
+    }
+</div>
+

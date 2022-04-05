@@ -21,3 +21,9 @@ body {
     background-color: var(--ourblue);
     border: var(--ourblue);
 }
+
+.filterbox {
+    display:grid; 
+    justify-items:stretch; 
+    row-gap:2px;
+}
