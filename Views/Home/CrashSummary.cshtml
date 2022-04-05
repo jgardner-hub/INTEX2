@@ -2,8 +2,7 @@
     ViewData["Title"] = "Crash Summary";
 }
 
-@model List<Crash>
-
+@model CrashesViewModel
 
 <div class="row">
     <div class="col-2">
@@ -20,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var c in Model)
+                @foreach (var c in Model.Crashes)
                 {
                 <tr>
                     <td>@c.CRASH_ID</td>
@@ -36,3 +35,4 @@
     </div>
 
 </div>
+<div page-blah="@Model.PageInfo" page-action="CrashSummary"></div>
