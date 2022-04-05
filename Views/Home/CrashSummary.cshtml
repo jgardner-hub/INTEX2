@@ -16,20 +16,23 @@
                         <tr>
                             <td>Crash Id</td>
                             <td>Crash Date</td>
+                            <td>County</td>
+                            <td>City</td>
                             <td>Crash Severity</td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var c in Model.Crashes)
                         {
-                            <tr>
-                                <td>@c.CRASH_ID</td>
-                                <td>@c.CRASH_DATE</td>
-                                <td>@c.CRASH_SEVERITY_ID</td>
+                        <tr>
+                            <td>@c.CRASH_ID</td>
+                            <td>@c.CRASH_DATE</td>
+                            <td>@c.COUNTY_NAME</td>
+                            <td>@c.CITY</td>
+                            <td>@c.CRASH_SEVERITY_ID</td>
 
-                                <td><a asp-controller="Home" asp-action="Edit" asp-route-bowlerid="@c.CRASH_ID">Edit</a></td>
-                                <td><a asp-controller="Home" asp-action="Delete" asp-route-bowlerid="@c.CRASH_ID">Delete</a></td>
-                            </tr>
+
+                        </tr>
                         }
                     </tbody>
                 </table>
