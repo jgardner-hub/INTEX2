@@ -48,30 +48,6 @@ namespace INTEX2.Controllers
 
             return View(x);
         }
-        [HttpPost]
-        public IActionResult pageJump(int pageNum)
-        {
-            int pageSize = 1000;
-
-            var x = new CrashesViewModel
-            {
-                Crashes = _context.crashdata
-                .OrderBy(c => c.CRASH_ID)
-                .Skip((pageNum - 1) * pageSize)
-                .Take(pageSize)
-                .ToList(),
-
-                PageInfo = new PageInfo
-                {
-                    TotalNumCrashes = _context.crashdata.Count(),
-                    CrashesPerPage = pageSize,
-                    CurrentPage = pageNum
-                }
-
-            };
-
-            return View("CrashSummary", x);
-        }
 
         //public IActionResult pageJump(int pageNum = 1)
         public IActionResult pageJump(string county, int pageNum = 1)
