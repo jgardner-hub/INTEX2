@@ -36,12 +36,13 @@ namespace INTEX2.Infrastructure
 
             TagBuilder final = new TagBuilder("div");
 
-            for (int i = 1; i < PageBlah.TotalPages; i++)
+            for (int i = 1; i <= PageBlah.TotalPages; i++)
             {
                 TagBuilder tb = new TagBuilder("a");
 
-                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });             
                 tb.Attributes["class"] = "btn btn-primary";
+             
                 tb.InnerHtml.Append(i.ToString());
 
                 final.InnerHtml.AppendHtml(tb);
