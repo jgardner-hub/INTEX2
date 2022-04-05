@@ -11,11 +11,11 @@ namespace INTEX2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private CrashesDbContext _context { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(CrashesDbContext temp)
         {
-            _logger = logger;
+            _context = temp;
         }
 
         public IActionResult Index()
@@ -23,15 +23,11 @@ namespace INTEX2.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult CrashSummary()
         {
-            return View();
+            var crashes = _context.Crashes.ToList();
+            return View(crashes);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

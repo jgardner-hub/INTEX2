@@ -37,7 +37,7 @@ namespace INTEX2.Models
 
         //All of the Binary options
         [Required]
-        public string work_zone_related  { get; set; }
+        public string work_zone_related { get; set; }
         [Required]
         public string pedestrian_involved { get; set; }
         [Required]
