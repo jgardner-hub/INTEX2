@@ -87,11 +87,20 @@ namespace INTEX2.Controllers
         [HttpGet]
         public IActionResult Delete(int CrashId)
         {
-            Crash input = _context.crashdata.Single(x => x.CRASH_ID == CrashId);
-            _context.crashdata.Remove(input);
+            var input = _context.crashdata.Single(x => x.CRASH_ID == CrashId);
+            //_context.crashdata.Remove(input);
+            //_context.SaveChanges();
+
+            return View(input);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Crash crash)
+        {
+            _context.crashdata.Remove(crash);
             _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("AdminCrashSummary");
         }
 
         public IActionResult CrashSummary(string county, int pageNum = 1)
