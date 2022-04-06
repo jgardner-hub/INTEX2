@@ -61,7 +61,9 @@ namespace INTEX2
                     pattern: "Home/CrashSummary/{county}/pg{pageNum}",
                     new {Controller = "Home", action = "CrashSummary"});
 
-                endpoints.MapControllerRoute("Paging", "Home/CrashSummary/pg{pageNum}", new { Controller = "Home", action = "CrashSummary" });
+                endpoints.MapControllerRoute("Paging", 
+                    "Home/CrashSummary/pg{pageNum}",
+                    new { Controller = "Home", action = "CrashSummary", pageNum =1 });
                 
                 endpoints.MapControllerRoute("county",
                     "Home/CrashSummary/{county}",

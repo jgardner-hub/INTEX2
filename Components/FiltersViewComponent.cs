@@ -18,6 +18,7 @@ namespace INTEX2.Components
 
         public IViewComponentResult Invoke()
         {
+            ViewBag.SelectedCounty = RouteData?.Values["county"];
 
             var county = _context.crashdata
                 .Select(x => x.COUNTY_NAME) 

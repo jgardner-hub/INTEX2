@@ -24,9 +24,11 @@ namespace INTEX2.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult CrashSummary(string county, int pageNum = 1)
         {
-            int pageSize = 1000;
+
+            int pageSize = 100;
 
             var x = new CrashesViewModel
             {
@@ -39,43 +41,18 @@ namespace INTEX2.Controllers
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumCrashes = _context.crashdata.Count(),
+                    TotalNumCrashes =
+                    (county == null ?
+                    _context.crashdata.Count()
+                    : _context.crashdata.Where(x => x.COUNTY_NAME == county).Count()),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum
                 }
 
             };
-
             return View(x);
         }
 
-        //public IActionResult pageJump(int pageNum = 1)
-        public IActionResult pageJump(string county, int pageNum = 1)
-        {
-            int pageSize = 100;
-            pageNum = Convert.ToInt32(pageNum);
-
-            var x = new CrashesViewModel
-            {
-                Crashes = _context.crashdata
-                .Where(c => c.COUNTY_NAME == county || county == null)
-                .OrderBy(c => c.CRASH_ID)
-                .Skip((pageNum - 1) * pageSize)
-                .Take(pageSize)
-                .ToList(),
-
-                PageInfo = new PageInfo
-                {
-                    TotalNumCrashes = _context.crashdata.Count(),
-                    CrashesPerPage = pageSize,
-                    CurrentPage = pageNum
-                }
-
-            };
-
-            return RedirectToAction("CrashSummary", x);
-
-
-        }
     }
 }
+
