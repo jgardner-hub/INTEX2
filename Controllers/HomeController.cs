@@ -21,7 +21,37 @@ namespace INTEX2.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Crashes = _context.crashdata.ToList();
+
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddCrash()
+        {
+            ViewBag.Crashes = _context.crashdata.ToList();
+            ViewBag.Counties = _context.crashdata.Select(x => x.COUNTY_NAME).Distinct().OrderBy(x => x).ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddCrash(Crash c)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.crashdata.Add(c);
+                _context.SaveChanges();
+                var x = _context.crashdata.ToList();
+                return View("Index", x);
+            }
+
+            else
+            {
+                //ViewBag.Crashes = _context.crashdata.ToList();
+                ViewBag.Counties = _context.crashdata.Select(x => x.COUNTY_NAME).Distinct().OrderBy(x => x).ToList();
+                return View(c);
+            }
+
         }
 
         public IActionResult CrashSummary(string county, int pageNum = 1)
@@ -100,7 +130,7 @@ namespace INTEX2.Controllers
 
             return RedirectToAction("CrashSummary", x);
 
-
         }
+
     }
 }
