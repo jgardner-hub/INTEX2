@@ -22,21 +22,21 @@
             <label asp-for="@Model.long_utm_x">Longitude:</label>
             <input asp-for="@Model.long_utm_x" /><br />
             <br />
-            <label asp-for="@Model.work_zone_related" id="workzone">Work Zone Related:</label>
-            <input asp-for="@Model.work_zone_related" id="RadioButton1" type="radio" name="workzone" value="1.0"  />Yes
-            <input asp-for="@Model.work_zone_related" id="RadioButton2" type="radio" name="workzone" value="0.0" checked/>No
+            <label asp-for="@Model.work_zone_related" id="work_zone_related">Work Zone Related:</label>
+            <input asp-for="@Model.work_zone_related" id="RadioButton1" type="radio" name="work_zone_related" value="1.0" />Yes
+            <input asp-for="@Model.work_zone_related" id="RadioButton2" type="radio" name="work_zone_related" value="0.0" checked />No
             <br />
-            <label asp-for="@Model.pedestrian_involved" id="pedestrian">Pedestrian Involved:</label>
-            <input asp-for="@Model.pedestrian_involved" id="RadioButton1" type="radio" name="pedestrian" value="1.0" />Yes
-            <input asp-for="@Model.pedestrian_involved" id="RadioButton2" type="radio" name="pedestrian" value="0.0" checked />No
+            <label asp-for="@Model.pedestrian_involved" id="pedestrian_involved">Pedestrian Involved:</label>
+            <input asp-for="@Model.pedestrian_involved" id="RadioButton1" type="radio" name="pedestrian_involved" value="1.0" />Yes
+            <input asp-for="@Model.pedestrian_involved" id="RadioButton2" type="radio" name="pedestrian_involved" value="0.0" checked />No
             <br />
-            <label asp-for="@Model.bicyclist_involved" id="bicyclist">Bicyclist Involved:</label>
-            <input asp-for="@Model.bicyclist_involved" id="RadioButton1" type="radio" name="bicyclist" value="1.0" />Yes
-            <input asp-for="@Model.bicyclist_involved" id="RadioButton2" type="radio" name="bicyclist" value="0.0" checked />No
+            <label asp-for="@Model.bicyclist_involved" id="bicyclist_involved">Bicyclist Involved:</label>
+            <input asp-for="@Model.bicyclist_involved" id="RadioButton1" type="radio" name="bicyclist_involved" value="1.0" />Yes
+            <input asp-for="@Model.bicyclist_involved" id="RadioButton2" type="radio" name="bicyclist_involved" value="0.0" checked />No
             <br />
-            <label asp-for="@Model.motorcycle_involved" id="motorcycle">Motorcycle Involved:</label>
-            <input asp-for="@Model.motorcycle_involved" id="RadioButton1" type="radio" name="motorcycle" value="1.0" />Yes
-            <input asp-for="@Model.motorcycle_involved" id="RadioButton2" type="radio" name="motorcycle" value="0.0" checked />No
+            <label asp-for="@Model.motorcycle_involved" id="motorcycle_involved">Motorcycle Involved:</label>
+            <input asp-for="@Model.motorcycle_involved" id="RadioButton1" type="radio" name="motorcycle_involved" value="1.0" />Yes
+            <input asp-for="@Model.motorcycle_involved" id="RadioButton2" type="radio" name="motorcycle_involved" value="0.0" checked />No
             <br />
             <label asp-for="@Model.unrestrained" id="unrestrained">Unrestrained:</label>
             <input asp-for="@Model.unrestrained" id="RadioButton1" type="radio" name="unrestrained" value="1.0" />Yes
@@ -80,54 +80,9 @@
             <label asp-for="@Model.hour">Hour (1-24):</label>
             <input asp-for="@Model.hour" /><br />
 
-            @*<label asp-for="@Model.work_zone_related" id="">Work Zone Related:</label>*@
-            @*<input type="checkbox" asp-for="@Model.work_zone_related" /><br />*@
-
-            @*<label asp-for="@Model.pedestrian_involved">Pedestrian Involved:</label>
-            <input type="checkbox" asp-for="@Model.pedestrian_involved" /><br />
-
-            <label asp-for="@Model.bicyclist_involved">Bicyclist Involved:</label>
-            <input type="checkbox" asp-for="@Model.bicyclist_involved" /><br />
-
-            <label asp-for="@Model.motorcycle_involved">Motorcyclist Involved:</label>
-            <input type="checkbox" asp-for="@Model.motorcycle_involved" /><br />
-
-            <label asp-for="@Model.unrestrained">Unrestrained:</label>
-            <input type="checkbox" asp-for="@Model.unrestrained" /><br />
-
-            <label asp-for="@Model.intersection_related">Intersection Related:</label>
-            <input type="checkbox" asp-for="@Model.intersection_related" /><br />
-
-            <label asp-for="@Model.overturn_rollover">Overturn Rollover:</label>
-            <input type="checkbox" asp-for="@Model.overturn_rollover" /><br />
-
-            <label asp-for="@Model.teenage_driver_involved">Teenage Driver Involved:</label>
-            <input type="checkbox" asp-for="@Model.teenage_driver_involved" /><br />
-
-            <label asp-for="@Model.older_driver_involved">Older Driver Involved:</label>
-            <input type="checkbox" asp-for="@Model.older_driver_involved" /><br />
-
-            <label asp-for="@Model.night_dark_condition">Night Driver Involved:</label>
-            <input type="checkbox" asp-for="@Model.night_dark_condition" /><br />
-
-            <label asp-for="@Model.single_vehicle">Single Vehicle:</label>
-            <input type="checkbox" asp-for="@Model.single_vehicle" /><br />
-
-            <label asp-for="@Model.distracted_driving">Districted Driving:</label>
-            <input type="checkbox" asp-for="@Model.distracted_driving" /><br />
-
-            <label asp-for="@Model.roadway_departure">Roadway Departure:</label>
-            <input type="checkbox" asp-for="@Model.roadway_departure" /><br />
-
-            <label asp-for="@Model.month">Month (1-12):</label>
-            <input type="checkbox" asp-for="@Model.month" /><br />
-
-            <label asp-for="@Model.hour">Hour (1-24):</label>
-            <input type="checkbox" asp-for="@Model.hour" /><br />*@
-
             <button type="submit">Predict Crash Severity ID</button>
         </form>
         <p>Crash Severity ID=@ViewBag.predictedvalue</p>
     </div>
-    
+
 </div>

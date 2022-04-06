@@ -115,6 +115,7 @@ namespace INTEX2.Controllers
         [HttpGet]
         public IActionResult Calculator()
         {
+            ViewBag.view="first"
             return View();
         }
         [HttpPost]
