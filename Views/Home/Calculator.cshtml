@@ -12,14 +12,14 @@
     <div class="col-7">
         <form method="post" asp-controller="Home" asp-action="Calculator">
             <div asp-validation-summary="All"></div>
-            <h1>Please Fill Out All of the Crash Info:</h1>
-            <label asp-for="@Model.milepoint">Milepoint:</label>
+            <h1>Fill Out All of the Crash Info to Predict Crash Severity:</h1>
+            <label asp-for="@Model.milepoint">Milepoint Location (1.0-550.0):</label>
             <input asp-for="@Model.milepoint" /><br />
             <br />
-            <label asp-for="@Model.lat_utm_y">Latitude:</label>
+            <label asp-for="@Model.lat_utm_y">Latitude (in decimal form):</label>
             <input asp-for="@Model.lat_utm_y" /><br />
             <br />
-            <label asp-for="@Model.long_utm_x">Longitude:</label>
+            <label asp-for="@Model.long_utm_x">Longitude (in decimal form):</label>
             <input asp-for="@Model.long_utm_x" /><br />
             <br />
             <label asp-for="@Model.work_zone_related" id="work_zone_related">Work Zone Related:</label>
@@ -74,11 +74,13 @@
             <input asp-for="@Model.roadway_departure" id="RadioButton1" type="radio" name="roadway_departure" value="1.0" />Yes
             <input asp-for="@Model.roadway_departure" id="RadioButton2" type="radio" name="roadway_departure" value="0.0" checked />No
             <br />
-            <label asp-for="@Model.month">Month (1-12):</label>
+            <br />
+            <label asp-for="@Model.month">Month of the Year (1-12; i.e. 1=January, 12=December):</label>
             <input asp-for="@Model.month" /><br />
             <br />
-            <label asp-for="@Model.hour">Hour (1-24):</label>
+            <label asp-for="@Model.hour">Hour of the Day (1-24; i.e. 2=2:00:00 AM, 14=2:00:00 PM):</label>
             <input asp-for="@Model.hour" /><br />
+            <br />
 
             <button type="submit">Predict Crash Severity ID</button>
         </form>

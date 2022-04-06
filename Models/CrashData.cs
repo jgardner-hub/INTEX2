@@ -1,12 +1,19 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.ML.OnnxRuntime.Tensors;
 
 namespace INTEX2.Models
 {
     public class CrashData
     {
+        [Required(ErrorMessage = "Please enter the milepoint location")]
+        [Range(0, 550, ErrorMessage = "Enter a decimal between 0 to 550")]
         public float milepoint { get; set; }
+        [Required(ErrorMessage = "Please enter the latitude in decimal form (~4000000.000 - 5000000.000")]
+        [Range(4000000, 5000000, ErrorMessage = "Enter a decimal between 4000000 to 5000000")]
         public float lat_utm_y { get; set; }
+        [Required(ErrorMessage = "Please enter the longitude in decimal form (~20000.000 - 700000.000")]
+        [Range(20000, 700000, ErrorMessage = "Enter a decimal between 20000 to 700000")]
         public float long_utm_x { get; set; }
         public float work_zone_related { get; set; }
         public float pedestrian_involved { get; set; }
@@ -21,7 +28,11 @@ namespace INTEX2.Models
         public float single_vehicle { get; set; }
         public float distracted_driving { get; set; }
         public float roadway_departure { get; set; }
+        [Required(ErrorMessage = "Please enter a month")]
+        [Range(1, 12, ErrorMessage = "Enter a number between 1 to 12")]
         public float month { get; set; }
+        [Required(ErrorMessage = "Please an hour")]
+        [Range(1, 24, ErrorMessage = "Enter a number between 1 to 24")]
         public float hour { get; set; }
         //public float main_road_name_Other { get; set; }
         //public float crash_severity_id { get; set; }
