@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.ML.OnnxRuntime;
+
 
 namespace INTEX2
 {
@@ -32,6 +34,10 @@ namespace INTEX2
                options.UseMySql(Configuration["ConnectionStrings:CrashesDbConnection"]);
 
            });
+
+            services.AddSingleton<InferenceSession>(
+                new InferenceSession("Models/onnx_intex_model.onnx")
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +67,9 @@ namespace INTEX2
                     pattern: "Home/CrashSummary/{county}/pg{pageNum}",
                     new {Controller = "Home", action = "CrashSummary"});
 
-                endpoints.MapControllerRoute("Paging", "Home/CrashSummary/pg{pageNum}", new { Controller = "Home", action = "CrashSummary" });
+                endpoints.MapControllerRoute("Paging", 
+                    "Home/CrashSummary/pg{pageNum}",
+                    new { Controller = "Home", action = "CrashSummary", pageNum =1 });
                 
                 endpoints.MapControllerRoute("county",
                     "Home/CrashSummary/{county}",
