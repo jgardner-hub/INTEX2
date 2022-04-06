@@ -27,6 +27,7 @@ namespace INTEX2.Controllers
         [HttpGet]
         public IActionResult CrashSummary(string county, int pageNum = 1)
         {
+
             int pageSize = 100;
 
             var x = new CrashesViewModel
@@ -40,15 +41,18 @@ namespace INTEX2.Controllers
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumCrashes = _context.crashdata.Count(),
+                    TotalNumCrashes =
+                    (county == null ?
+                    _context.crashdata.Count()
+                    : _context.crashdata.Where(x => x.COUNTY_NAME == county).Count()),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum
                 }
 
             };
-
             return View(x);
         }
+
 
         public IActionResult AdminCrashSummary(string county, int pageNum = 1)
         {
