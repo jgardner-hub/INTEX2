@@ -49,7 +49,7 @@ namespace INTEX2.Infrastructure
                     tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
                     tb.InnerHtml.Append(i.ToString());
                     if (PageBlah.CurrentPage == i)
-                    {
+                    { 
                         tb.Attributes["class"] = "btn btn-primary";
                     }
                     else
