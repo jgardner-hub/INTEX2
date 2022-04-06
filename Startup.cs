@@ -40,6 +40,10 @@ namespace INTEX2
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<AppIdentityDBContext>();
 
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<AppIdentityDBContext>();
+
+
             services.Configure<IdentityOptions>(options =>
             {
                 // Modify as needed
@@ -51,6 +55,13 @@ namespace INTEX2
                 options.Password.RequiredUniqueChars = 1;
             });
 
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Default SignIn settings.
+                options.SignIn.RequireConfirmedEmail = false;
+                options.SignIn.RequireConfirmedPhoneNumber = false;
+            });
+
             //Configures default user requirements
             services.Configure<IdentityOptions>(options =>
             {
@@ -60,6 +71,10 @@ namespace INTEX2
                 options.User.RequireUniqueEmail = false;
 
             });
+
+
+
+
         }
 
         
