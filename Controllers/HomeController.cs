@@ -27,6 +27,8 @@ namespace INTEX2.Controllers
         [HttpGet]
         public IActionResult CrashSummary(string county, int pageNum = 1)
         {
+            int pageSize = 100;
+
             var x = new CrashesViewModel
             {
                 Crashes = _context.crashdata
