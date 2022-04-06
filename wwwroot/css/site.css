@@ -98,6 +98,12 @@ nav {
     background-color: rgb(52,58,64,.6);
 }
 
+.ourhead {
+    min-height:75px;
+    margin-bottom:20px;
+    background-color:var(--ourdarkgray);
+}
+
 header {
     position: absolute;
     right: 0;

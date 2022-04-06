@@ -25,7 +25,6 @@ namespace INTEX2.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Crashes = _context.crashdata.ToList();
 
             return View();
         }
