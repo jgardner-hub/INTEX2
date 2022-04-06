@@ -35,7 +35,7 @@ body {
 
 .pimg1 {
     background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/ed-259-xcrI6CPkkJs-unsplash.jpg');
-    min-height: 500px;
+    min-height: 550px;
     width: 100vw;
     position: relative;
     opacity: 0.70;
@@ -47,7 +47,7 @@ body {
 
 .ptext {
     position: absolute;
-    top: 50%;
+    top: 40%;
     width: 100%;
     text-align: center;
     color: #000;
