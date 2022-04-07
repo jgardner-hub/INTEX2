@@ -142,7 +142,7 @@ namespace INTEX2.Controllers
             {
                 Crashes = _context.crashdata
                 .Where(c => c.COUNTY_NAME == county || county == null)
-                .OrderBy(c => c.CRASH_ID)
+                .OrderByDescending(c => c.CRASH_DATE)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize)
                 .ToList(),

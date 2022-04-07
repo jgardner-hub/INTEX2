@@ -45,11 +45,11 @@
         </div>
 
         <div page-blah="@Model.PageInfo" page-action="CrashSummary" class="btn-group"></div>
-        <form method="post">
+        @*<form method="post">
             <label>Jump to Page:</label>
             <input type="number" />
             <button type="submit" asp-controller="Home" asp-action="pageJump" class="btn btn-secondary">Go</button>
-        </form>
+        </form>*@
         <p>Page @Model.PageInfo.CurrentPage of @Model.PageInfo.TotalPages Pages</p>
     </main>
 </div>
