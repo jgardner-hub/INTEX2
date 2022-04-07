@@ -10,7 +10,6 @@ namespace INTEX2.Models
     {
         [Key]
         [Required]
-
         public int CRASH_ID { get; set; }
 
         [Required]
