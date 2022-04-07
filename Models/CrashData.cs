@@ -10,10 +10,10 @@ namespace INTEX2.Models
         [Range(0, 550, ErrorMessage = "Enter a decimal between 0 to 550")]
         public float milepoint { get; set; }
         [Required(ErrorMessage = "Please enter the latitude in decimal form (~4000000.000 - 5000000.000")]
-        [Range(4000000, 5000000, ErrorMessage = "Enter a decimal between 4000000 to 5000000")]
+        [Range(4000000, 5000000, ErrorMessage = "Enter a latitude decimal between 4000000 to 5000000")]
         public float lat_utm_y { get; set; }
         [Required(ErrorMessage = "Please enter the longitude in decimal form (~20000.000 - 700000.000")]
-        [Range(20000, 700000, ErrorMessage = "Enter a decimal between 20000 to 700000")]
+        [Range(20000, 700000, ErrorMessage = "Enter a longitude decimal between 20000 to 700000")]
         public float long_utm_x { get; set; }
         public float work_zone_related { get; set; }
         public float pedestrian_involved { get; set; }

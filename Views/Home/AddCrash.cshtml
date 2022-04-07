@@ -11,6 +11,7 @@
     <div asp-validation-summary="All"></div>
     <h1>Please Fill Out All of the Crash Info:</h1>
 
+
     @if (ViewBag.form == "edit")
     {
         <div class="form-group">
@@ -44,6 +45,7 @@
 
     <label asp-for=@Model.COUNTY_NAME>County:</label>
     <select asp-for="@Model.COUNTY_NAME">
+
         @foreach (string c in ViewBag.Counties)
         {
             <option value="@c">@c</option>
