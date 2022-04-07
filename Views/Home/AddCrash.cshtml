@@ -29,22 +29,22 @@
     <input type="time" asp-for=@Model.CRASH_TIME /><br />
 
     <label asp-for=@Model.ROUTE>Route:</label>
-    <input asp-for=@Model.ROUTE /><br />
+    <input asp-for=@Model.ROUTE placeholder="i.e. 78"/><br />
 
     <label asp-for=@Model.MILEPOINT>Milepoint:</label>
-    <input asp-for=@Model.MILEPOINT /><br />
+    <input asp-for=@Model.MILEPOINT placeholder="i.e. 80.1"/><br />
 
     <label asp-for=@Model.LAT_UTM_Y>Latitude:</label>
-    <input asp-for=@Model.LAT_UTM_Y /><br />
+    <input asp-for=@Model.LAT_UTM_Y placeholder="i.e. 4485216.624"/><br />
 
     <label asp-for=@Model.LONG_UTM_X>Longitude:</label>
-    <input asp-for=@Model.LONG_UTM_X /><br />
+    <input asp-for=@Model.LONG_UTM_X placeholder="i.e. 427715.032"/><br />
 
     <label asp-for=@Model.MAIN_ROAD_NAME>Main Road Name:</label>
-    <input asp-for=@Model.MAIN_ROAD_NAME /><br />
+    <input asp-for=@Model.MAIN_ROAD_NAME placeholder="i.e. 700 W 12300 S"/><br />
 
     <label asp-for=@Model.CITY>City:</label>
-    <input asp-for=@Model.CITY /><br />
+    <input asp-for=@Model.CITY placeholder="LOGAN"/><br />
 
     <label asp-for=@Model.COUNTY_NAME>County:</label>
     <select asp-for="@Model.COUNTY_NAME">
@@ -55,7 +55,7 @@
     </select>
 
     <label asp-for=@Model.CRASH_SEVERITY_ID>Severity:</label>
-    <input type="number" min="1" max="5" asp-for=@Model.CRASH_SEVERITY_ID /><br />
+    <input type="number" min="1" max="5" asp-for=@Model.CRASH_SEVERITY_ID placeholder="1 - 5"/><br />
 
     <label asp-for=@Model.WORK_ZONE_RELATED>Work Zone Related:</label>
     <input type="checkbox" asp-for=@Model.WORK_ZONE_RELATED /><br />

@@ -25,7 +25,6 @@ namespace INTEX2.Controllers
 
         public IActionResult Index()
         {
-
             return View();
         }
 
