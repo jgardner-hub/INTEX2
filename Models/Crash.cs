@@ -10,11 +10,8 @@ namespace INTEX2.Models
     {
         [Key]
         [Required]
-
         public int CRASH_ID { get; set; }
 
-        [Required]
-        public string CRASH_DATETIME { get; set; }
         [Required]
         public DateTime CRASH_DATE { get; set; }
         [Required]
