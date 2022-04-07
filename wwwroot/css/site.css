@@ -174,12 +174,10 @@ header {
     background-color: #555;
 }
 
-
-.calc-cont {
-    margin-top:40px;
-}
-
 .calc-card {
+    margin-top: 40px;
+    position: sticky;
+    top: 40px;
     min-height: 40vh;
 }
 
