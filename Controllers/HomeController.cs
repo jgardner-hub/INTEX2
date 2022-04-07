@@ -7,22 +7,24 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.ML.OnnxRuntime;
+using Microsoft.ML.OnnxRuntime.Tensors;
 
 namespace INTEX2.Controllers
 {
     public class HomeController : Controller
     {
         private CrashesDbContext _context { get; set; }
+        private InferenceSession _session;
 
-        public HomeController(CrashesDbContext temp)
+        public HomeController(CrashesDbContext temp, InferenceSession session)
         {
             _context = temp;
+            _session = session;
         }
 
         public IActionResult Index()
         {
-            //ViewBag.Crashes = _context.crashdata.ToList();
-
             return View();
         }
 
@@ -155,6 +157,28 @@ namespace INTEX2.Controllers
             };
 
             return View(x);
+        }
+
+        [HttpGet]
+        public IActionResult Calculator()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Calculator(CrashData data)
+        {
+            var result = _session.Run(new List<NamedOnnxValue>
+            {
+                NamedOnnxValue.CreateFromTensor("float_input", data.AsTensor())
+            });
+
+            Tensor<float> score = result.First().AsTensor<float>();
+            var prediction = new Prediction { PredictedValue = score.First() };
+            ViewBag.predictedvalue = prediction.PredictedValue;
+            ViewBag.predictedvalue = Math.Round(ViewBag.PredictedValue);
+            result.Dispose();
+
+            return View(data);
         }
 
     }

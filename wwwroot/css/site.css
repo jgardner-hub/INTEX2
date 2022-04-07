@@ -1,5 +1,15 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+:root {
+    --ourblue: #5a87c5;
+    --ourgray: #999490;
+    --ourdarkgray: #333333;
+    --ourorange: #ee7623;
+}
+
+* {
+    box-sizing: border-box;
+}
 
 a.navbar-brand {
   white-space: normal;
@@ -58,10 +68,10 @@ html {
   min-height: 100%;
 }
 
-body {
+/*body {*/
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
+  /*margin-bottom: 60px;
+}*/
 .footer {
   position: absolute;
   bottom: 0;
@@ -69,3 +79,114 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+/*Our Styles*/
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--ourgray);
+}
+
+nav {
+    min-height: 75px;
+    background-color: rgb(52,58,64,.6);
+}
+
+.ourhead {
+    min-height:75px;
+    margin-bottom:20px;
+    background-color:var(--ourdarkgray);
+}
+
+header {
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 9;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.landing-header {
+    text-decoration: underline;
+    text-decoration-color: var(--ourorange);
+    text-decoration-thickness:4px;
+    text-underline-offset: 4px;
+}
+
+.pagesection {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 0.25rem;
+    padding: 20px;
+    margin: 10px 50px 10px;
+    background-color: white;
+}
+
+.filterbox {
+    display: grid;
+    justify-items: stretch;
+    row-gap: 2px;
+}
+
+.pimg1 {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/ed-259-xcrI6CPkkJs-unsplash.jpg');
+    min-height: 600px;
+    width: 100vw;
+    position: relative;
+    opacity: 0.70;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.ptext {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+
+#totop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: var(--ourblue);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+#totop:hover {
+    background-color: #555;
+}
+
+
+
+
+
+
+/*
+    Overwrite Bootstrap
+*/
+
+.btn-primary {
+    background-color: var(--ourblue);
+    border: var(--ourblue);
+}
+
+
+
