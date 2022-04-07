@@ -97,9 +97,9 @@ namespace INTEX2.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(Crash crash)
+        public IActionResult Delete(Crash c)
         {
-            _context.crashdata.Remove(crash);
+            _context.crashdata.Remove(c);
             _context.SaveChanges();
 
             return RedirectToAction("AdminCrashSummary");
