@@ -175,7 +175,13 @@ header {
 }
 
 
+.calc-cont {
+    margin-top:40px;
+}
 
+.calc-card {
+    min-height: 40vh;
+}
 
 
 
