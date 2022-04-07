@@ -25,16 +25,15 @@ namespace INTEX2.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Crashes = _context.crashdata.ToList();
-
             return View();
         }
 
         [HttpGet]
         public IActionResult AddCrash()
         {
-            ViewBag.Crashes = _context.crashdata.ToList();
+            //ViewBag.Crashes = _context.crashdata.ToList();
             ViewBag.Counties = _context.crashdata.Select(x => x.COUNTY_NAME).Distinct().OrderBy(x => x).ToList();
+            ViewBag.form = "add";
             return View();
         }
 
@@ -43,10 +42,18 @@ namespace INTEX2.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.crashdata.Add(c);
+                if (c.CRASH_ID == 0)
+                {
+                    _context.crashdata.Add(c);
+                }
+                else
+                {
+                    _context.Update(c);
+                }
+                //var x = _context.crashdata.ToList();
                 _context.SaveChanges();
-                var x = _context.crashdata.ToList();
-                return View("Index", x);
+                //ViewBag.Counties = _context.crashdata.Select(x => x.COUNTY_NAME).Distinct().OrderBy(x => x).ToList();
+                return RedirectToAction("AdminCrashSummary");
             }
 
             else
@@ -56,6 +63,46 @@ namespace INTEX2.Controllers
                 return View(c);
             }
 
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int CrashId)
+        {
+            var input = _context.crashdata.Single(x => x.CRASH_ID == CrashId);
+            ViewBag.Counties = _context.crashdata.Select(x => x.COUNTY_NAME).Distinct().OrderBy(x => x).ToList();
+            //ViewBag.Crashes = _context.crashdata.ToList();
+            ViewBag.form = "edit";
+            
+
+            return View("AddCrash", input);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Crash crash)
+        {
+            _context.Update(crash);
+            _context.SaveChanges();
+            //var x = _context.crashdata.ToList();
+            return RedirectToAction("AdminCrashSummary");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int CrashId)
+        {
+            var input = _context.crashdata.Single(x => x.CRASH_ID == CrashId);
+            //_context.crashdata.Remove(input);
+            //_context.SaveChanges();
+
+            return View(input);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Crash crash)
+        {
+            _context.crashdata.Remove(crash);
+            _context.SaveChanges();
+
+            return RedirectToAction("AdminCrashSummary");
         }
 
         public IActionResult CrashSummary(string county, int pageNum = 1)
