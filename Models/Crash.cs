@@ -13,7 +13,7 @@ namespace INTEX2.Models
         public int CRASH_ID { get; set; }
 
         [Required]
-        public DateTime CRASH_DATE { get; set; }
+        public string CRASH_DATE { get; set; }
         [Required]
         public string CRASH_TIME { get; set; }
         [Required]
