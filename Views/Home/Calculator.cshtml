@@ -39,7 +39,10 @@
                 <input asp-for="@Model.motorcycle_involved" id="RadioButton1" type="radio" name="motorcycle_involved" value="1.0" />Yes
                 <input asp-for="@Model.motorcycle_involved" id="RadioButton2" type="radio" name="motorcycle_involved" value="0.0" checked />No
                 <br />
-                <label asp-for="@Model.unrestrained" id="unrestrained">Unrestrained:</label>
+                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+                    ?
+                </button>
+                <label asp-for="@Model.unrestrained" id="unrestrained" data-toggle="tooltip" data-placement="left" title="Did these homies use a seatbelt?">Unrestrained:</label>
                 <input asp-for="@Model.unrestrained" id="RadioButton1" type="radio" name="unrestrained" value="1.0" />Yes
                 <input asp-for="@Model.unrestrained" id="RadioButton2" type="radio" name="unrestrained" value="0.0" checked />No
                 <br />
